@@ -136,8 +136,10 @@ class PokemonCenterMonitor:
     
     def notify(self):
         """Send notification when item is in stock"""
-        message = f"🚨 IN STOCK ALERT! 🚨\n\n{PRODUCT_NAME}\n\nBUY NOW: {PRODUCT_URL}"
-        
+        message =( 
+            f"IN STOCK: {PRODUCT_NAME}\n"
+            f"{PRODUCT_URL}"
+                 )
         self.log("📢 ITEM IN STOCK! Sending notification...")
         self.send_sms(message)
     
