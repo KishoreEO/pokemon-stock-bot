@@ -174,18 +174,3 @@ class PokemonCenterMonitor:
 if __name__ == "__main__":
     monitor = PokemonCenterMonitor()
     monitor.run()
-```
-
-5. Scroll down and click **"Commit changes"** (green button)
-
----
-
-## 📝 **Step 2: Add Requirements File**
-
-1. Click **"Add file"** again → **"Create new file"**
-2. **Name:** `requirements.txt`
-3. **Paste this:**
-```
-requests==2.31.0
-beautifulsoup4==4.12.2
-twilio==8.10.0
