@@ -85,7 +85,7 @@ class PokemonCenterMonitor:
             
             soup = BeautifulSoup(response.text, 'html.parser')
             
-            in_stock = True
+            in_stock = False
             
             # Method 1: Check for "Add to Cart" button
             add_to_cart_btn = soup.find('button', {'class': lambda x: x and 'add-to-cart' in x.lower()})
