@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: pokemon-stock-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_PHONE_FROM
+        sync: false
+      - key: TWILIO_PHONE_TO
+        sync: false
