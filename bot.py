@@ -10,14 +10,12 @@ import json
 # CONFIGURATION - EDIT THESE VALUES
 # ============================================
 
-PRODUCT_URL = "https://www.pokemoncenter.com/product/10-10191-109/pokemon-tcg-mega-evolution-phantasmal-flames-booster-bundle-6-packs"
-PRODUCT_NAME = "Pokemon TCG Mega Evolution Phantasmal Flames Booster Bundle"
-CHECK_INTERVAL = 90  # seconds (90 = 1.5 minutes)
+PRODUCT_URL = "https://www.pokemoncenter.com/product/10-10304-101/pokemon-tcg-spheal-appeal-card-sleeves-65-sleeves"
+PRODUCT_NAME = "Pokemon TCG Spheal Appeal Card Sleeves (65 sleeves)"
+CHECK_INTERVAL = 90  # you can leave this as-is
 
-# Cart API endpoint for THIS product
-CART_URL = "https://www.pokemoncenter.com/tpci-ecommweb-api/cart/add-product/qgqvhkjsheyc2obqheydm="
+CART_URL = "https://www.pokemoncenter.com/tpci-ecommweb-api/cart/add-product/qgqvhlbrgawtcmbtga2c2mjqge="
 
-# Payload captured from DevTools
 BASE_CART_PAYLOAD = {
     "clobber": False,
     "quantity": 1,
