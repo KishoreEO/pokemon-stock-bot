@@ -101,15 +101,8 @@ class PokemonCenterMonitor:
 
             in_stock = False
 
-            # Look specifically for the add-to-cart button
-            def has_add_to_cart_class(c):
-                if not c:
-                    return False
-                # c may be a list or a string
-                classes = c if isinstance(c, list) else [c]
-                return any('add-to-cart-button' in cls for cls in classes)
-
-            add_to_cart_btn = soup.find('button', {'class': has_add_to_cart_class})
+            # More robust: any button whose class attribute contains "add-to-cart"
+            add_to_cart_btn = soup.select_one("button[class*='add-to-cart']")
 
             if add_to_cart_btn:
                 text = add_to_cart_btn.get_text(strip=True).lower()
