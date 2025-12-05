@@ -101,8 +101,19 @@ class PokemonCenterMonitor:
 
             in_stock = False
 
-            # More robust: any button whose class attribute contains "add-to-cart"
+            # Try: any button whose class attribute contains "add-to-cart"
             add_to_cart_btn = soup.select_one("button[class*='add-to-cart']")
+
+            # Fallback: search by visible text
+            if not add_to_cart_btn:
+                buttons = soup.find_all("button")
+                self.log(f"🔎 Found {len(buttons)} buttons, scanning for 'add to cart' text...")
+                for btn in buttons:
+                    label = btn.get_text(strip=True).lower()
+                    if "add to cart" in label:
+                        add_to_cart_btn = btn
+                        self.log("✅ Found Add to Cart button by text")
+                        break
 
             if add_to_cart_btn:
                 text = add_to_cart_btn.get_text(strip=True).lower()
@@ -115,7 +126,7 @@ class PokemonCenterMonitor:
                     self.log("✅ Add to Cart button enabled")
                     in_stock = True
             else:
-                self.log("⚠️ No Add to Cart button found")
+                self.log("⚠️ No Add to Cart button found (class or text)")
                 in_stock = False
 
             return in_stock
@@ -126,6 +137,7 @@ class PokemonCenterMonitor:
         except Exception as e:
             self.log(f"❌ Error: {str(e)}")
             return None
+
 
     def add_to_cart(self) -> bool:
         """POST to the Pokémon Center cart API to add this item."""
