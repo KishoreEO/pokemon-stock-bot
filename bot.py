@@ -1,9 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/bot.py b/bot.py
-index c0b532bebae2dbe7af7fee85ea16871238698fa9..6441dd4904c582ab3f9a4095f9b6e55970198c9f 100644
---- a/bot.py
-+++ b/bot.py
-@@ -1,178 +1,219 @@
  import requests
  from bs4 import BeautifulSoup
  import time
