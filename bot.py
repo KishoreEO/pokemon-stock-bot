@@ -133,17 +133,15 @@ class PokemonCenterMonitor:
         except Exception as e:
             self.log(f"❌ Error: {str(e)}")
             return None
-    
+            
     def notify(self):
-        """Send notification when item is in stock"""
-            message = (
-                f"IN STOCK: {PRODUCT_NAME}\n"
-                f"{PRODUCT_URL}"     
-            )
-        
+        message = (
+            f"IN STOCK: {PRODUCT_NAME}\n"
+            f"{PRODUCT_URL}"
+        )
         self.log("📢 ITEM IN STOCK! Sending notification...")
         self.send_sms(message)
-    
+        
     def run(self):
         """Main monitoring loop"""
         self.log("🤖 Pokemon Center Stock Monitor Starting...")
